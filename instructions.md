@@ -82,9 +82,9 @@ Write a function that takes an address or place name as input and returns a prop
 
 Now that we can find the coordinates of a given place, let's take things one step further and find the closest public transportation stop to that location. 
 
-To accomplish this, we will use the *MBTA-realtime API* (<https://api-v3.mbta.com/docs/swagger/index.html>). Check out the details for `GET /stops` in the documentation.
+To accomplish this, we will use the [*MBTA-realtime API*](https://api-v3.mbta.com/docs/swagger/index.html). Check out the details for `GET /stops` in the documentation.
 
-**Note**: You need to request an API key from *MBTA V3 API Portal*(<https://api-v3.mbta.com/>).
+**Note**: You need to request an API key from [*MBTA V3 API Portal*](https://api-v3.mbta.com).
 
 #### What you need to do
 Write a function that takes a latitude and longitude and returns the name of the closest MBTA stop and whether it is wheelchair accessible.
@@ -117,7 +117,7 @@ In the introduction, we defined `Flask` as a 'web framework', but what does that
 
 When you open up a web page in your browser (e.g. Chrome, Firefox, etc.), it makes an HTTP request to a server somewhere in the world. This could be something like GET me the home page. This server handles this request, sending back data (this can be in the form of HTML, JSON, XML, etc.), which is rendered by your browser.
 
-This is where Flask comes in - it allows you to create the logic to make a web server quickly in Python. You can write logic that will execute when a request is made for one of your routes (e.g. www.mycoolwebsite.com/home).
+This is where Flask comes in - it allows you to create the logic to make a web server quickly in Python. You can write logic that will execute when a request is made for one of your routes (e.g. www.mycoolwebsitefrompythonclass.com/home).
 
 ### Quickstart
 Flask Quickstart documentation: <https://flask.palletsprojects.com/en/1.1.x/quickstart/>
