@@ -1,2 +1,2 @@
 # WebApp_MBTA
- This is the base repo for MBTA project
+ This is the base repo for MBTA project. Please read [instructions](instructions.md). 
