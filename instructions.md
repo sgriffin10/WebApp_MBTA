@@ -25,7 +25,7 @@ The goal for Part 1 to deal with geographical data. You will write a tool that t
     >>>print(mbta_helper.find_stop_near("Boston Common"))
     Beacon St opp Walnut St
 
-Note: There are already a few Python packages (<https://wiki.python.org/moin/GIS/Web_services>) that interface with mapping services, but part of this project is seeing how you might write your own such package from scratch.
+Note: There are already [a few Python packages](https://wiki.python.org/moin/GIS/Web_services) that interface with mapping services, but part of this project is seeing how you might write your own such package from scratch.
 
 ### Accessing web data programmatically
 APIs let you make requests using specifically constructed URLs and return data in a nicely structured format.
@@ -43,10 +43,10 @@ There are three main steps to using any web API:
 3. **Test out your application and launch to users**
     (A.K.A. the fun part):
 
-    The first API we will use is the *MapQuest* (<https://developer.mapquest.com/documentation/geocoding-api/address/get/>). This tool (among other things) allows you to specify a place name or address and receive its latitude and longitude. Take a few minutes to read the documentation (it's quite good). You need to sign up and get a free API Key from here (<https://developer.mapquest.com/>). 
+    The first API we will use is the [*MapQuest*](https://developer.mapquest.com/documentation/geocoding-api/address/get/). This tool (among other things) allows you to specify a place name or address and receive its latitude and longitude. Take a few minutes to read the documentation (it's quite good). You need to sign up and get a free API Key from [here](https://developer.mapquest.com/). 
 
 ### Structured data responses (JSON)
-Back? Ok cool, let's try it out in Python. We're going to request the response in JSON format, which we can decode using Python's `json` (<https://docs.python.org/3.7/library/json.html>) module.
+Back? Ok cool, let's try it out in Python. We're going to request the response in JSON format, which we can decode using Python's [`json` module](https://docs.python.org/3.7/library/json.html).
 
     import urllib.request
     import json
@@ -61,7 +61,7 @@ Back? Ok cool, let's try it out in Python. We're going to request the response i
     pprint(response_data)
 
 
-We used the `pprint` (<https://docs.python.org/3/library/pprint.html>) module to "pretty print" the response data structure with indentation so it's easier to visualize. You should see something similar to the JSON response from the documentation, except built from Python data types. This response data structure is built from nested dictionaries and lists, and you can step through it to access the fields you want.
+We used the [`pprint` module](https://docs.python.org/3/library/pprint.html) to "pretty print" the response data structure with indentation so it's easier to visualize. You should see something similar to the JSON response from the documentation, except built from Python data types. This response data structure is built from nested dictionaries and lists, and you can step through it to access the fields you want.
 
     >>> print(response_data["results"][0]["locations"][0]['postalCode'])
     02481
@@ -71,9 +71,9 @@ We used the `pprint` (<https://docs.python.org/3/library/pprint.html>) module to
 Write a function (maybe two) to extract the latitude and longitude from the JSON response.
 
 ### Speaking URL
-In the above example we passed a hard-coded URL to the `urlopen` function, but in your code you will need to generate the parameters based on user input. Check out *Understanding URLs* (<https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL>) and their structure for a helpful guide to URL components and encoding.
+In the above example we passed a hard-coded URL to the `urlopen` function, but in your code you will need to generate the parameters based on user input. Check out [*Understanding URLs*](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL) and their structure for a helpful guide to URL components and encoding.
 
-You can build up the URL string manually, but it's probably helpful to check out `urlencode` from `urllib.request` (<https://docs.python.org/3.7/library/urllib.parse.html#urllib.parse.urlencode>) and its examples (<https://docs.python.org/3.7/library/urllib.request.html#urllib-examples>).
+You can build up the URL string manually, but it's probably helpful to check out [`urlencode` function](<https://docs.python.org/3.7/library/urllib.parse.html#urllib.parse.urlencode>) from `urllib.request` and its [examples](https://docs.python.org/3.7/library/urllib.request.html#urllib-examples).
 
 #### What you need to do
 Write a function that takes an address or place name as input and returns a properly encoded URL to make a  Mapquest geocode request.
@@ -99,7 +99,7 @@ Note: Sadly there are no MBTA stops close enough to Babson College - you have to
 - Try out some other APIs - there are a lot of resources and we have barely scratched the surface
 - By default, `stops` gives all types of transportation, including buses and commuter rail. Allow the user to specify how they'd like to travel (e.g. T only)
 - Add in the MBTA realtime arrival data to help choose what station you should walk to
-- Connect with other local services. Example: the City of Boston has an app (<https://www.boston.gov/departments/innovation-and-technology/apps>) that uses a phone's GPS and accelerometer to automatically report potholes to be fixed.
+- Connect with other local services. Example: the City of Boston has [an app](https://www.boston.gov/departments/new-urban-mechanics/street-bump)  that uses a phone's GPS and accelerometer to automatically report potholes to be fixed. You can also see many other appsdeveloped for Boston residents [here](https://www.boston.gov/departments/innovation-and-technology/apps).
 
 ## Part 2: Web App
 The goal for Part 2 is to build a simple website that uses the module `mbta_helper` you created in Part 1. 
@@ -145,7 +145,7 @@ What use is a web application if you can't get any data back from the user? Let'
 
 1. Upon visiting the index page at `http://127.0.0.1:5000/`, the user will be greeted by a page that says hello, and includes an input **form** that requests a place name.
 2. Upon clicking the 'Submit' button, the data from the form will be sent via a POST request to the Flask backend at the route `POST /nearest`
-3. (Optional) Perform some simple validation on the user input. (<https://flask.palletsprojects.com/en/1.1.x/patterns/wtforms/>)
+3. (Optional) Perform some simple validation on the user input. See [wtforms](https://flask.palletsprojects.com/en/1.1.x/patterns/wtforms/).
 4. The Flask backend will handle the request to `POST /nearest_mbta`. Then your app will render a `mbta_station` page for the user - presenting nearest MBTA stop and whether it is wheelchair accessible. In this step, you need to use the code from Part 1.
 5. If something is wrong, the app will render a simple error page, which will include some indication that the search did not work, in addition to a button (or link) that will redirect the user back to the home page.
 
@@ -153,21 +153,21 @@ It will be up to you to make this happen. If you feel confident in your ability 
 
 ### Tips and tricks
 
-To complete this project, the official Flask documentation will get you pretty far. There is the *full documentation* (<https://flask.palletsprojects.com/en/1.1.x/#user-s-guide>).
+To complete this project, the official Flask documentation will get you pretty far. There is the [*full documentation*](https://flask.palletsprojects.com/en/1.1.x/#user-s-guide).
 
-- **HTML Forms:**. To make forms in HTML, check out *w3schools* (<https://www.w3schools.com/html/html_forms.asp>). For even more information, check *this* (<https://lmgtfy.com/?q=html+forms>) out.
+- **HTML Forms:**. To make forms in HTML, check out [*w3schools*](https://www.w3schools.com/html/html_forms.asp). For even more information, check [*this*](https://lmgtfy.com/?q=html+forms) out.
 
 - **Sending POST Requests:** To send the data from the form in a POST request, use an input with type `submit`, and set the action of the form to reflect the destination in your routes.
 
-- **Handling POST Requests:** To learn more about handling post requests in Flask, read section *HTTP Methods* (<https://flask.palletsprojects.com/en/1.1.x/quickstart/#http-methods>) again.
+- **Handling POST Requests:** To learn more about handling post requests in Flask, read section [*HTTP Methods*](https://flask.palletsprojects.com/en/1.1.x/quickstart/#http-methods) again.
 
-- **Accessing the Form Data:** To access the form data, check out section *'The Request Object'* (<https://flask.palletsprojects.com/en/1.1.x/quickstart/#the-request-object>) on using the Flask `request` utility.
+- **Accessing the Form Data:** To access the form data, check out section [*'The Request Object'*](https://flask.palletsprojects.com/en/1.1.x/quickstart/#the-request-object) on using the Flask `request` utility.
 
 ### Going further (Optional)
 
-- **Learn more about Django** (<https://www.djangoproject.com/>) - an alternative to Flask. They don't have many major differences other than some small quirks in conventions and style. 
+- **Learn more about [Django](<https://www.djangoproject.com/>)**  - an alternative to Flask. They don't have many major differences other than some small quirks in conventions and style. 
 - **Want to keep track of some data in your web app?** Instead of using a .txt file or a pickle file, it's common practice in nearly any web app to use a database. A few especially well-known database choices are MySql, SQLite, or PostgreSQL, which all use SQL(Structured Query Language) to manipulate all stored, as do many other common relational databases. You also may have heard some buzz about MongoDb, which uses an unstructured data format in documents similar to JSON. Mongo is stupidly easy to set up and use, but I'd stop and think first before jumping right in. It may be the easy choice, but representing your data intelligently in a relational table can be much more effective and less of a headache later on.
-- **But HTML is so ugly!** HTML alone is very ugly. That's why we use CSS (Cascading Style Sheets) to add some extra flair and style to our HTML. You can change pretty much anything about HTML - colors, shapes, sizes, placement, etc. with CSS rules. It's also pretty simple to write. Check this resource (<https://www.w3schools.com/css/css_intro.asp>) out to learn more about CSS.
+- **But HTML is so ugly!** HTML alone is very ugly. That's why we use CSS (Cascading Style Sheets) to add some extra flair and style to our HTML. You can change pretty much anything about HTML - colors, shapes, sizes, placement, etc. with CSS rules. It's also pretty simple to write. Check [this resource](https://www.w3schools.com/css/css_intro.asp) out to learn more about CSS.
 - **What about making my website dynamic?** Our class may be a class in Python, but we can venture out a little and use some jQuery. jQuery might seem scary, but you use it in a way similar to adding/linking CSS styling to your HTML. You write scripts in JavaScript (which isn't too difficult), which can allow you to add beautiful responsive and dynamic content to your web app.
 
 ## Project Wrap-up
