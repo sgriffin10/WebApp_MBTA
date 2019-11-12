@@ -1,3 +1,4 @@
+'''Belongs to Brach 1'''
 # A little bit of scaffolding if you want to use it
 from api_credentials import *
 import urllib.request
@@ -12,7 +13,7 @@ response_text = f.read().decode('utf-8')
 response_data = json.loads(response_text)
 pprint(response_data)
 print(response_data["results"][0]["locations"][0]['postalCode'])
-
+#changes
 
 def get_json(url):
     """
