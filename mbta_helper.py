@@ -5,7 +5,11 @@ import urllib.request
 import json
 from pprint import pprint
 
-# MAPQUEST_API_KEY = 'YOUR API KEY'
+MAPQUEST_API_KEY = 'YOUR API KEY: 	fCqG7G2TwuZI9OpIwFHbqMZThj3EZoin'
+
+#to call MBTA API KEY, TRY THE FOLLOWING: 
+
+f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance'
 
 def get_json(url):
     """
@@ -49,6 +53,8 @@ def get_nearest_station(latitude, longitude):
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
+
+    
     pass
 
 

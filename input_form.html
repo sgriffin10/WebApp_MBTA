@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MBTA App</title>
+  </head>
+  <body>
+    <h1>MBTA App</h1>
+    <form method="POST" name="MBTA App">
+      {% if error %}
+      <p style="color:red">This place name does not exist.</p>
+      {% endif %}
+      <p>
+        Please enter the name of a place:
+      </p>
+      <p>
+        <input type="text" size="4" name="a" />x<sup>2</sup> 
+      </p>
+      <p>
+        <input type="submit" value="Magic Happens" />
+      </p>
+    </form>
+  </body>
+</html>
+
+<!-- NEED TO EDIT FOR ACTUAL INPUTS! -->
