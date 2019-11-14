@@ -77,8 +77,8 @@ def main():
     #get_lat_long
     place_name = 'Copley Square'
     sec_fun = get_lat_long(place_name)
-    print(sec_fun)
-    # get_nearest_station(42.350009, -71.076077)
+    # print(sec_fun)
+    get_nearest_station(sec_fun) #42.350009, -71.076077
     # get_nearest_station(sec_fun)
 
 
