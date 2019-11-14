@@ -5,6 +5,10 @@ import urllib.request
 import json
 from pprint import pprint
 
+from flask import Flask, escape, url_for
+
+app = Flask(__name__)
+
 # MAPQUEST_API_KEY = 'YOUR API KEY: 	fCqG7G2TwuZI9OpIwFHbqMZThj3EZoin'
 
 #to call MBTA API KEY, TRY THE FOLLOWING: 
@@ -24,7 +28,8 @@ def get_json(url):
     
 
 
-
+# @app.route("/hello/")
+@app.route("/homepage/<place_name>")
 def get_lat_long(place_name):
     """
     Given a place name or address, return a (latitude, longitude) tuple
