@@ -38,7 +38,6 @@ def get_lat_long(place_name):
     place_json = get_json(url)
     lat = place_json["results"][0]["locations"][0]["latLng"]["lat"]
     lng = place_json["results"][0]["locations"][0]["latLng"]["lng"]
-    print(f'({lat}, {lng})')
     return lat, lng
 
 def get_nearest_station(latitude, longitude):
@@ -51,13 +50,13 @@ def get_nearest_station(latitude, longitude):
     url = '{}?api_key={}&filter[latitude]={}&filter[longitude]={}&sort=distance'.format(MBTA_BASE_URL,MBTA_API_KEY,latitude,longitude)
     print(url)
     station_json = get_json(url)
-    pprint(station_json)
+    # pprint(station_json)
     station_name = station_json['data'][0]['attributes']['name']
     print(station_name)
     station_description = station_json['data'][0]['attributes']['description']
     if station_description:
         station_name = station_description
-    # print(station_description)
+    print(station_description)
     wheelchair_boarding = station_json['data'][0]['attributes']['wheelchair_boarding']
     return station_name, wheelchair_boarding
     
@@ -76,8 +75,11 @@ def main():
     You can call the functions here
     """
     #get_lat_long
-    place_name = 'Babson College'
-    get_lat_long(place_name)
+    place_name = 'Copley Square'
+    sec_fun = get_lat_long(place_name)
+    print(sec_fun)
+    # get_nearest_station(42.350009, -71.076077)
+    # get_nearest_station(sec_fun)
 
 
 if __name__ == '__main__':
