@@ -50,16 +50,21 @@ def get_nearest_station(latitude, longitude):
     formatting requirements for the 'GET /stops' API.
     """
     url = '{}?api_key={}&filter[latitude]={}&filter[longitude]={}&sort=distance'.format(MBTA_BASE_URL,MBTA_API_KEY,latitude,longitude)
-    print(url)
+    # print(url)
     station_json = get_json(url)
-    # pprint(station_json)
+    # print(station_json)
     station_name = station_json['data'][0]['attributes']['name']
-    print(station_name)
-    station_description = station_json['data'][0]['attributes']['description']
-    if station_description:
-        station_name = station_description
-    print(station_description)
+    # # print(station_name)
+    # # station_description = station_json['data'][0]['attributes']['description']
+    # # if station_description:
+    # #     station_name = station_description
+    # # print(station_description)
     wheelchair_boarding = station_json['data'][0]['attributes']['wheelchair_boarding']
+    if wheelchair_boarding:
+        wheelchair_boarding = "This station is wheelchair accesible"
+    else:
+        wheelchair_boarding = "Sorry cripple"
+    # print(wheelchair_boarding)
     return station_name, wheelchair_boarding
     
     
@@ -78,15 +83,13 @@ def main():
     You can call the functions here
     """
     #get_lat_long
-    place_name = 'Copley Square'
-    sec_fun = get_lat_long(place_name)
+    place_name = 'Arlington - Arlington St'
+    # sec_fun = get_lat_long(place_name)
     # print(sec_fun)
-    get_nearest_station(sec_fun) #42.350009, -71.076077
-    # get_nearest_station(sec_fun)
-
-    # place_name = str(input('please enter a city'))
-
-
+    # get_nearest_station(sec_fun[0], sec_fun[1]) #
+    # get_nearest_station(42.350009, -71.076077)
+    print(find_stop_near(place_name))
+ 
 
 if __name__ == '__main__':
     main()
