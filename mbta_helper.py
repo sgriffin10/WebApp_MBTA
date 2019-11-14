@@ -5,9 +5,6 @@ import urllib.request
 import json
 from pprint import pprint
 
-from flask import Flask, escape, url_for
-
-app = Flask(__name__)
 
 # MAPQUEST_API_KEY = 'YOUR API KEY: 	fCqG7G2TwuZI9OpIwFHbqMZThj3EZoin'
 
@@ -29,7 +26,7 @@ def get_json(url):
 
 
 # @app.route("/hello/")
-@app.route("/homepage/<place_name>")
+# @app.route("/homepage/<place_name>")
 def get_lat_long(place_name):
     """
     Given a place name or address, return a (latitude, longitude) tuple
@@ -67,11 +64,12 @@ def get_nearest_station(latitude, longitude):
     
     
 
-
+# @app.route("/find_place/", methods= ["GET", "POST"])
 def find_stop_near(place_name):
     """
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
+    
     return get_nearest_station(*get_lat_long(place_name))
 
 
@@ -85,6 +83,9 @@ def main():
     # print(sec_fun)
     get_nearest_station(sec_fun) #42.350009, -71.076077
     # get_nearest_station(sec_fun)
+
+    # place_name = str(input('please enter a city'))
+
 
 
 if __name__ == '__main__':
