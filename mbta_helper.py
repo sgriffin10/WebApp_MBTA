@@ -48,9 +48,20 @@ def get_nearest_station(latitude, longitude):
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
-
+    url = '{}?api_key={}&filter[latitude]={}&filter[longitude]={}&sort=distance'.format(MBTA_BASE_URL,MBTA_API_KEY,latitude,longitude)
+    print(url)
+    station_json = get_json(url)
+    pprint(station_json)
+    station_name = station_json['data'][0]['attributes']['name']
+    print(station_name)
+    station_description = station_json['data'][0]['attributes']['description']
+    if station_description:
+        station_name = station_description
+    # print(station_description)
+    wheelchair_boarding = station_json['data'][0]['attributes']['wheelchair_boarding']
+    return station_name, wheelchair_boarding
     
-    pass
+    
 
 
 def find_stop_near(place_name):
@@ -64,9 +75,6 @@ def main():
     """
     You can call the functions here
     """
-    #get_json
-    url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location=Babson%20College'
-    # print(get_json(url))
     #get_lat_long
     place_name = 'Babson College'
     get_lat_long(place_name)
