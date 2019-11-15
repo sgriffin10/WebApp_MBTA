@@ -32,18 +32,17 @@ app = Flask(__name__)
 #     print(url_for('login'))
 #     print(url_for('login', next='/'))
 #     print(url_for('profile', username='John Doe'))
-
-@app.route("/homepage")
-def homepage():
-    return render_template("homepage.html")
-
-
-
+# 
+# 
 # @app.route("/hello/")
 # def hello_human(name=None):
 #     if name:
 #         name = name.upper()
 #     return render_template("hello.html", name=name)
+
+@app.route("/homepage")
+def homepage():
+    return render_template("homepage.html")
 
 
 @app.route("/mbta_helper", methods= ["GET", "POST"]) #binds a function to a specified URL
